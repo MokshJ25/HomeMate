@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
-// const calendarRoutes = require('./routes/calendar');
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -13,12 +12,13 @@ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+.catch(err => console.log(err));
 const authRoutes = require('./routes/auth');
 const bookingRoutes = require('./routes/bookings');
+// const calendarRoutes = require('./routes/calendar');
 app.use('/api/auth', authRoutes);
 app.use('/api/bookings', bookingRoutes);
-// app.use('/api', calendarRoutes);
+// app.use('/api/calendar', calendarRoutes);
 app.post('/api/check-pincode', (req, res) => {
   const metroPincodes = ['110001', '400001', '560001', '600001', '700001'];
   if (metroPincodes.includes(req.body.pincode)) {
