@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* App placeholder image style */
+.placeholder-img {
+  @apply w-full h-48 rounded-2xl bg-gradient-to-br from-gray-200 via-gray-300 to-gray-200 flex items-center justify-center;
+}
