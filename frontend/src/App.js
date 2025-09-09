@@ -9,6 +9,7 @@ import Updates from './pages/Updates';
 import CalendarPage from './pages/CalendarPage';
 import AdminDashboard from './pages/AdminDashboard';
 import Navbar from './components/Navbar';
+import About from './pages/About';
 import Footer from './components/Footer';
 
 function App(){
@@ -25,6 +26,7 @@ function App(){
           <Route path="/updates" element={<Updates />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
       <Footer />

@@ -1,19 +1,14 @@
-// backend/models/Maid.js
 const mongoose = require('mongoose');
-
 const MaidSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  gender: { type: String, enum: ['male','female','any'], default: 'female' },
+  gender: { type: String, enum: ['male','female','any'], default: 'any' },
   skills: [{ type: String }], // e.g. ['cleaning','cooking','babysitting','elderlyCare']
-  phone: { type: String },
+  phone: String,
   rating: { type: Number, default: 5 },
-  imageUrl: { type: String },
+  imageUrl: String,
   assignedBookings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Booking' }],
-  // Dates when maid is booked (YYYY-MM-DD strings)
-  bookedDates: [{ type: String }],
-  // Dates when maid is on leave
+  availability: [{ type: String }], // store dates as ISO strings 'YYYY-MM-DD'
   leaveDates: [{ type: String }],
   createdAt: { type: Date, default: Date.now }
 });
-
 module.exports = mongoose.model('Maid', MaidSchema);
